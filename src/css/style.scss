@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+.output .list-group-item {
+    cursor: pointer;
+}
+.output .list-group-item .btn-success {
+    color: white;
+}
+.hint.active {
+    display: block;
+}
+.hint {
+    display: none;
+}

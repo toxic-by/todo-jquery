@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="col">
+                <div class="row align-items-end">
+                    <div class="col-8">
+                        <h1 class="display-3">Todo list</h1>
+                    </div>
+
+                    <div class="col-4 text-end">
+                        <small class="d-block">Important : <span id="importantCount">0</span></small>
+                        <small class="d-block">Active : <span id="activeCount">0</span></small>
+                        <small class="d-block">Done : <span id="doneCount">0</span></small>
+                        <div class="input-group input-group-sm">
+                            <input type="text" id="searchTodo" class="form-control" placeholder="search" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <small>Enter what to do below</small>
+                </div>
+                <div class="row mb-2">
+                    <div class="input-group">
+                        <input type="text" id="inputTodo" class="form-control" placeholder="Buy milk" />
+                        <button class="btn btn-primary" type="button" id="btnAddTodo">Enter</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <small class="hint">Click on item <u>text</u> to mark as done</small>
+                </div>
+
+                <div class="list-group output"></div>
+            </div>
+        </div>
+
+        <script src="./js/build-plugins.js"></script>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
