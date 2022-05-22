@@ -13,6 +13,7 @@ jQuery(function () {
     });
 
     $("#searchTodo").on("keyup", function () {
+        updateCount();
         render();
     });
 
@@ -24,6 +25,12 @@ jQuery(function () {
             renderData = allData.filter((item) => item.val.includes(searchValue));
         } else {
             renderData = allData;
+        }
+
+        if (renderData.length > 0) {
+            $(".hint").addClass("active");
+        } else {
+            $(".hint").removeClass("active");
         }
 
         renderData.forEach((listItem, idx) => {
@@ -88,11 +95,5 @@ jQuery(function () {
         $("#importantCount").text(important);
         $("#doneCount").text(done);
         $("#activeCount").text(activeCount);
-
-        if (totalCount > 0) {
-            $(".hint").addClass("active");
-        } else {
-            $(".hint").removeClass("active");
-        }
     }
 });
