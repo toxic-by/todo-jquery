@@ -9,19 +9,19 @@ const browserSync = require("browser-sync").create();
 function buildStyles() {
     return src("./src/**/*.scss")
         .pipe(sass({ outputStyle: "compressed" }).on("error", sass.logError))
-        .pipe(dest("./build/"))
+        .pipe(dest("./docs/"))
         .pipe(browserSync.stream());
 }
 
 function buildHtml() {
-    return src("./src/*.html").pipe(dest("./build/")).pipe(browserSync.stream());
+    return src("./src/*.html").pipe(dest("./docs/")).pipe(browserSync.stream());
 }
 
 function buildJS() {
     return src("./src/**/*.js")
         .pipe(concat("main.js"))
         .pipe(uglify())
-        .pipe(dest("./build/js"))
+        .pipe(dest("./docs/js"))
         .pipe(browserSync.stream());
 }
 
@@ -29,21 +29,21 @@ function buildProdLibsJS() {
     return src(["./node_modules/jquery/dist/jquery.min.js", "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"])
         .pipe(concat("build-plugins.js"))
         .pipe(uglify())
-        .pipe(dest("./build/js/"));
+        .pipe(dest("./docs/js/"));
 }
 function buildProdLibsCSS() {
     return src("./node_modules/bootstrap/dist/css/bootstrap.min.css")
         .pipe(cleanCSS())
-        .pipe(dest("./build/css/bootstrap"));
+        .pipe(dest("./docs/css/bootstrap"));
 }
 
 function clean() {
-    return del("./build/");
+    return del("./docs/");
 }
 
 function startBrowserSync() {
     browserSync.init({
-        server: "./build/",
+        server: "./docs/",
     });
 
     watch("./src/**/*.scss", buildStyles);
